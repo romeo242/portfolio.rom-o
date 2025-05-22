@@ -1,0 +1,201 @@
+ /* Reset and globals */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #0b1a4d;
+      color: #e1e8f8;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+    a {
+      color: #a3c1f7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #f0ad4e;
+    }
+    header {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid #2e3a7c;
+      margin-bottom: 2rem;
+    }
+    .profile-photo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #f0ad4e;
+      flex-shrink: 0;
+    }
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      font-weight: 600;
+    }
+    nav ul li {
+      cursor: pointer;
+      position: relative;
+    }
+    nav ul li::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #f0ad4e;
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    nav ul li:hover::after,
+    nav ul li.active::after {
+      width: 100%;
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      padding-bottom: 3rem;
+      flex-grow: 1;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    #accueil {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+    #accueil h1 {
+      font-size: 2.5rem;
+      color: #f0ad4e;
+      margin-bottom: 0.3rem;
+    }
+    #accueil p {
+      max-width: 600px;
+      font-size: 1.2rem;
+      color: #cbd3f2;
+    }
+
+    #competences h2,
+    #contact h2 {
+      font-size: 2rem;
+      border-left: 6px solid #f0ad4e;
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1.5px;
+    }
+
+    #competences ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding-left: 0;
+    }
+    #competences ul li {
+      background-color: #132758;
+      padding: 0.8rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #f0ad4e;
+      box-shadow: 0 3px 8px rgba(240, 173, 78, 0.4);
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+    #competences ul li:hover {
+      transform: scale(1.1);
+    }
+
+    form {
+      background-color: #132758;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(16, 32, 74, 0.8);
+      max-width: 500px;
+      margin: auto;
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #f0ad4e;
+    }
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      background-color: #0b1a4d;
+      color: #e1e8f8;
+      box-shadow: inset 0 0 5px rgba(255,255,255,0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 6px 2px #f0ad4e;
+      background-color: #142a74;
+    }
+    form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    form button {
+      padding: 0.8rem 2rem;
+      background-color: #f0ad4e;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0b1a4d;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 4px 12px rgba(240, 173, 78, 0.6);
+    }
+    form button:hover {
+      background-color: #d18f24;
+      box-shadow: 0 6px 16px rgba(209, 143, 36, 0.8);
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      #accueil h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+      #competences ul {
+        justify-content: center;
+      }
+    }

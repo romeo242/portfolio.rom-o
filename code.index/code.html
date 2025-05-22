@@ -1,0 +1,97 @@
+"<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="code.css">
+</head>
+<body>
+  <header>
+    <div class="profile-photo" aria-label="Photo de profil">
+      <img src="Roméo.jpg" alt="Photo de profil" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#accueil" class="active">Accueil</a></li>
+        <li><a href="#competences">Compétence</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="accueil" tabindex="0">
+      <h1>Bienvenue sur mon Portfolio</h1>
+      <p>je me nomme Roméo MOUANDA un jeune étudiant développeur passionné, je crée des solutions numériques élégantes et performantes.</p>
+    </section>
+
+    <section id="competences" tabindex="0">
+      <h2>Compétence Informatique</h2>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>Administration système</li>
+        <li>secrétariat</li>
+        <li>Réseau informatique</li>
+      </ul>
+    </section>
+
+    <section id="contact" tabindex="0">
+      <h2>Contactez-moi</h2>
+      <form id="contactForm" novalidate>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+
+        <label for="adresse">Adresse</label>
+        <input type="email" id="adresse" name="adresse" placeholder="Votre adresse e-mail" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+
+        <button type="submit">Envoyez</button>
+      </form>
+    </section>
+  </main>
+
+<footer>
+  <p>2025 Roméo MOUANDA. Né le 11 Septembre 2002 à Pointe-Noire</p>
+  <a href="mouandajirdianromeo@gmail.com">mouandajirdianromeo@gmail.com</a>
+</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('nav ul li a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nom = form.nom.value.trim();
+        const adresse = form.adresse.value.trim();
+        const message = form.message.value.trim();
+
+        if (!nom || !adresse || !message) {
+          alert('Veuillez remplir tous les champs.');
+          return;
+        }
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(adresse)) {
+          alert("Veuillez entrer une adresse e-mail valide.");
+          return;
+        }
+
+        alert(`Merci, ${nom}, votre message a bien été envoyé !`);
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>
+
